@@ -13,3 +13,5 @@ export function getRandomPrompt(prompt) {
 export async function downloadImage(_id, photo) {
   FileSaver.saveAs(photo, `download-${_id}.jpg`);
 }
+
+export const URL = process.env.NODE_ENV === "development" ? "http://localhost:8081" : "https://imagee-bq4i.onrender.com";

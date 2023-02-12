@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
 import { Card, FormField, Loader } from '../components';
+import { URL } from '../utils';
 
 const RenderCards = ({data, title}) => {
   if(data?.length > 0) {
@@ -25,7 +26,7 @@ const Home = () => {
       setLoading(true);
 
       try {
-        const response = await fetch('http://localhost:8081/api/v1/post', {
+        const response = await fetch(`${URL}/api/v1/post`, {
           method: 'GET',
           headers: {
             'Content-type': 'application/json',

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { preview } from '../assets';
 import { FormField, Loader } from '../components';
-import { getRandomPrompt } from '../utils';
+import { getRandomPrompt, URL } from '../utils';
 
 const CreatePost = () => {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        const response = await fetch('http://localhost:8081/api/v1/dalle', {
+        const response = await fetch(`${URL}/api/v1/dalle`, {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
@@ -47,7 +47,7 @@ const CreatePost = () => {
       setLoading(true);
 
       try {
-        const response = await fetch('http://localhost:8081/api/v1/post', {
+        const response = await fetch(`${URL}/api/v1/post`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
